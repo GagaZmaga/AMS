@@ -3,3 +3,17 @@
 venv/
 *.dcm
 *.obj
+*.swp
+.ipynb_checkpoints
+__pycache__/
+evaluation_results/
+results/
+retina*.trch
+
+
+*.swp
+.ipynb_checkpoints
+__pycache__/
+evaluation_results/
+results/
+retina*.trch
