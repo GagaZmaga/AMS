@@ -1,0 +1,12 @@
+Command:
+/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/AMS/GIT/ByConstructionICON/affine_consistent_3x3.py
+System:
+MacBookAir.home
+Python:
+/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/.venv/bin/python
+Git Hash:
+dcc997c
+https://github.com/GagaZmaga/AMS.git/tree/dcc997c
+Uncommitted changes:
+Current working dir:
+/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/AMS/GIT
