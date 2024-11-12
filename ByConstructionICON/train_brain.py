@@ -8,8 +8,9 @@ if __name__ == "__main__":
     input_shape = [1, 1, 130, 155, 130]
     footsteps.initialize()
 
+# "/playpen-ssd/tgreer/ICON_brain_preprocessed_data/stripped/brain_train_2xdown_scaled"
     dataset = torch.load(
-        "/playpen-ssd/tgreer/ICON_brain_preprocessed_data/stripped/brain_train_2xdown_scaled"
+        "/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/AMS/GIT/results/lungs_train_2xdown_scaled"
     )
 
     batch_function = lambda: (
