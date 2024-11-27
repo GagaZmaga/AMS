@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-
+import sys
+sys.path.append('/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/AMS/GIT/utils')
 import torch
 import torch.nn.functional as F
 from tqdm import trange
@@ -8,9 +9,9 @@ import numpy as np
 import nibabel as nib
 import logging 
 from scipy.ndimage.interpolation import zoom as zoom
-from utils.vxmplusplus_utils import adam_mind,get_vxmpp_models,return_crops
-from utils.thin_plate_spline import thin_plate_dense
-from utils.data_utils import get_files
+from vxmplusplus_utils import adam_mind,get_vxmpp_models,return_crops
+from thin_plate_spline import thin_plate_dense
+from data_utils import get_files
 
 
 import network_definition

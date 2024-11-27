@@ -85,7 +85,7 @@ def make_net(input_shape = [1, 1, 80, 192, 192], lmbda=5):
 
 if __name__ == "__main__":
     footsteps.initialize()
-
+#Pazi pot
     dataset = torch.load("/playpen/tgreer/knees_big_2xdownsample_train_set")
 
     batch_function = lambda: (make_batch(dataset), make_batch(dataset))

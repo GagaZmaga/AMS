@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 
+import sys
+sys.path.append('/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/AMS/GIT/utils')
 import torch
 import sys
 import time
 import argparse
 import logging
 from tqdm import trange,tqdm
-from utils.vxmplusplus_utils import get_vxmpp_models,return_crops
-from utils.thin_plate_spline import *
-from utils.data_utils import get_files
+from vxmplusplus_utils import get_vxmpp_models,return_crops
+from thin_plate_spline import *
+from data_utils import get_files
 
-data_dir = 'data/'
-dir_save = 'model/'
+data_dir = '/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/AMS/GIT/ThoraxCBCT/'
+dir_save = '/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/AMS/GIT/Model/'
 
 
 import network_definition

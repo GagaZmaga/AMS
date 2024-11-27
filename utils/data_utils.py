@@ -1,3 +1,5 @@
+import sys
+sys.path.append('/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/AMS/GIT/utils')
 
 import torch
 import torch.nn.functional as F
@@ -5,8 +7,8 @@ import nibabel as nib
 import numpy as np
 import os
 import json
-from utils.foerstner import foerstner_kpts 
-from utils.vxmplusplus_utils import MINDSSC
+from foerstner import foerstner_kpts 
+from vxmplusplus_utils import MINDSSC
 
 
 def get_files(data_dir, task, mode, do_MIND):
