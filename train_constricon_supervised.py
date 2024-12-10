@@ -12,7 +12,7 @@ from vxmplusplus_utils import get_vxmpp_models,return_crops
 from thin_plate_spline import *
 from data_utils import get_files
 
-data_dir = '/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/AMS/GIT/ThoraxCBCT/'
+data_dir = '/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/AMS/GIT/Podatki_za_ucenje_izziv/'
 dir_save = '/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/AMS/GIT/Model/'
 
 
