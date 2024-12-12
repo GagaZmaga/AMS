@@ -5,7 +5,7 @@ RUN apt-get install -y python3
 RUN apt-get install -y python3-pip
 RUN apt-get install -y python-is-python3
 
-WORKDIR /Testiranje
+WORKDIR /GIT
 
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
