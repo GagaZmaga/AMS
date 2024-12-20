@@ -25,11 +25,15 @@ https://cloud.imi.uni-luebeck.de/s/xQPEy4sDDnHsmNg
 (or use your own data)
 
 Build the docker:
+***NOTE***: path to data and save_direcory must be edited in files train_constricon_supervised.py and inference_constricon.py
 
 docker build -t constricon Dockerfile .
 
 
-docker run -i -t --runtime=nvidia -v /path/to/local/directory:/path/in/container constricon python train_constricon_supervised.py ThoraxCBCT
+docker run -i -t --runtime=nvidia -v /path/to/local/directory:/path/in/container constricon python train_constricon_supervised.py ThoraxCBCT (this command runs the training file)
+
+
+docker run -i -t --runtime=nvidia -v /path/to/local/directory:/path/in/container constricon python inference_constricon.py ThoraxCBCT Ts (this command runs the testing file)
 
 
 ### Usage without Docker
