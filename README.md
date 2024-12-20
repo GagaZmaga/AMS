@@ -7,7 +7,8 @@ Ta github repozitorij je nastal na podlagi:
 - članka: https://link.springer.com/chapter/10.1007/978-3-031-43999-5_65
 - github repozitorija: https://github.com/uncbiag/ByConstructionICON
 
-NOTE: this repository has multiple branches for training and testing go to branch testiranje
+NOTE: this repository has multiple branches for training and testing code go to branch **testiranje**.
+
 
 ## Article topic 
 Inverse consistency is a key feature in image registration, as it ensures that transformations between images remain consistent even when used in reverse. The proposed technique achieves inverse consistency in neural registration networks by structuring the network to parameterize the output transformations using a Lie group. This allows a multi-stage approach where networks are constructed to maintain this consistency in registration tasks from coarse to fine. Evaluation of this method on synthetic 2D data and real 3D medical image registration tasks showed high registration accuracy, while maintaining inverse consistency throughout the process. 
@@ -59,7 +60,7 @@ Alternatively, if you have execute permissions, you can directly run it:
 ```bash
 ./train.sh
 ```
-Make sure to include ` path to data`, `path where to save models` and all user related parameters in parser.
+***NOTE***: path to data and save_direcory must be edited in files train_constricon_supervised.py and inference_constricon.py
 
 ## Test Commands
 List the commands needed to test your model. Provide any necessary explanations or parameters.
