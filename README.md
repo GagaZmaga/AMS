@@ -7,8 +7,8 @@ Ta github repozitorij je nastal na podlagi:
 - članka: https://link.springer.com/chapter/10.1007/978-3-031-43999-5_65
 - github repozitorija: https://github.com/uncbiag/ByConstructionICON
 
-## Tema članka 
-Inverzna skladnost je ključna lastnost pri registraciji slik, saj zagotavlja, da transformacije med slikami ostanejo skladne tudi pri uporabi v obratni smeri. Predlagana tehnika dosega obratno konsistenco v nevronskih registracijskih mrežah tako, da strukturira mrežo za parametriranje izhodnih transformacij z uporabo Liejeve skupine. To omogoča večstopenjski pristop, pri katerem so omrežja sestavljena tako, da ohranjajo to skladnost pri nalogah registracije od grobe do fine. Vrednotenje te metode na sintetičnih 2D-podatkih in dejanskih nalogah registracije 3D-medicinskih slik je pokazalo visoko natančnost registracije, pri čemer se je v celotnem postopku ohranila inverzna konsistentnost.
+## Article topic 
+Inverse consistency is a key feature in image registration, as it ensures that transformations between images remain consistent even when used in reverse. The proposed technique achieves inverse consistency in neural registration networks by structuring the network to parameterize the output transformations using a Lie group. This allows a multi-stage approach where networks are constructed to maintain this consistency in registration tasks from coarse to fine. Evaluation of this method on synthetic 2D data and real 3D medical image registration tasks showed high registration accuracy, while maintaining inverse consistency throughout the process. 
 
 
 
