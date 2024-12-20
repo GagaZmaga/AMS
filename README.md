@@ -25,6 +25,7 @@ https://cloud.imi.uni-luebeck.de/s/xQPEy4sDDnHsmNg
 (or use your own data)
 
 Build the docker:
+
 ***NOTE***: path to data and save_direcory must be edited in files train_constricon_supervised.py and inference_constricon.py
 
 docker build -t constricon Dockerfile .
