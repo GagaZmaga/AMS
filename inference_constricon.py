@@ -16,9 +16,9 @@ from data_utils import get_files
 
 import network_definition
 
-data_dir = '/home/galk/Testiranje/Podatki_za_ucenje_izziv'
-model_weights_path = '/home/galk/Testiranje/Model/constricon_0.pth'
-outfolder = '/home/galk/Testiranje/Model/Model/Results/'
+data_dir = '/path/to/data'
+model_weights_path = '/path/to/constricon_0.pth' # path to the trained model
+outfolder = '/path/to/output'
 
 def logstring(*args):
     logging.info(str(args))
