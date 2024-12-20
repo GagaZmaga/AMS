@@ -27,6 +27,8 @@ https://cloud.imi.uni-luebeck.de/s/xQPEy4sDDnHsmNg
 Build the docker:
 
 docker build -t constricon Dockerfile .
+
+
 docker run -i -t --runtime=nvidia -v /path/to/local/directory:/path/in/container constricon python train_constricon_supervised.py ThoraxCBCT
 
 
