@@ -12,8 +12,8 @@ from vxmplusplus_utils import get_vxmpp_models,return_crops
 from thin_plate_spline import *
 from data_utils import get_files
 
-data_dir = '/home/galk/Testiranje/Podatki_za_ucenje_izziv/'
-dir_save = '/home/galk/Testiranje/Model/'
+data_dir = '/path/to/data'
+dir_save = '/path/to/save'
 
 
 
