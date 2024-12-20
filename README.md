@@ -7,6 +7,8 @@ Ta github repozitorij je nastal na podlagi:
 - članka: https://link.springer.com/chapter/10.1007/978-3-031-43999-5_65
 - github repozitorija: https://github.com/uncbiag/ByConstructionICON
 
+NOTE: this repository has multiple branches for training and testing go to branch testiranje
+
 ## Article topic 
 Inverse consistency is a key feature in image registration, as it ensures that transformations between images remain consistent even when used in reverse. The proposed technique achieves inverse consistency in neural registration networks by structuring the network to parameterize the output transformations using a Lie group. This allows a multi-stage approach where networks are constructed to maintain this consistency in registration tasks from coarse to fine. Evaluation of this method on synthetic 2D data and real 3D medical image registration tasks showed high registration accuracy, while maintaining inverse consistency throughout the process. 
 
