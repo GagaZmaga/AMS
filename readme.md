@@ -1,66 +1,75 @@
-# ConstrICON with ThoraxCBCT
+# AMS IZZIV - final report
+Gal Kumperščak
 
-https://github.com/uncbiag/ByConstructionICON/tree/oncoreg
+Inverse Consistency by Constructionfor Multistep Deep Registration
 
-Contact: tgreer@cs.unc.edu
+Ta github repozitorij je nastal na podlagi: 
+- članka: https://link.springer.com/chapter/10.1007/978-3-031-43999-5_65
+- github repozitorija: https://github.com/uncbiag/ByConstructionICON
 
-A dockerization of "Inverse Consistency By Construction for Multistep Deep Registration" (MICCAI 2023) for the OncoReg challenge. In the original paper we train our model using the same configuration on four datasets. This docker container trains that model on the provided dataset.json using that configuration.
+NOTE: this repository has multiple branches for training and testing code go to branch **testiranje**.
 
-training loss should start near 2, rapidly drop below 1, and then slowly decrease.
 
-With the settings provided in this repo, training should take about 8 hours, with an early checkpoint produced at the 45 minute mark. If 8 hours is too long, please adjust 
-```
-num_iterations = 7*4900
-```
-in `ByConstructionICON/train_constricon_supervised.py` at line 43. If more than 8 hours is available, the value 7 can be increased to use this time. From our experiments we expect mtre performance to continue improving up to 2 days of training, although train loss will plateau earlier. (`num_iterations = 24 * 2 * 4900`).
+## Article topic 
+Inverse consistency is a key feature in image registration, as it ensures that transformations between images remain consistent even when used in reverse. The proposed technique achieves inverse consistency in neural registration networks by structuring the network to parameterize the output transformations using a Lie group. This allows a multi-stage approach where networks are constructed to maintain this consistency in registration tasks from coarse to fine. Evaluation of this method on synthetic 2D data and real 3D medical image registration tasks showed high registration accuracy, while maintaining inverse consistency throughout the process. 
 
-Our inference script performs 50 steps of instance optimization. This should take under a minute per image pair.
 
-To use the 1 hour early weights, replace constricon.pth with constricon_0.pth in the inference script.
 
-## How To
 
-Download the ThoraxCBCT dataset including training and validation data, keypoints, masks and the **ThoraxCBCT_dataset.json**:  
+## Rezultati
+Zaenkrat še zmeraj poganjam...
+
+## Docker Information
+Download the ThoraxCBCT dataset including training and validation data, keypoints, masks and the ThoraxCBCT_dataset.json:
 https://cloud.imi.uni-luebeck.de/s/xQPEy4sDDnHsmNg
+(or use your own data)
 
 Build the docker:
 
-```
-sudo docker build -t constricon ByConstructionICON/
-```
+docker build -t constricon Dockerfile .
+docker run -i -t --runtime=nvidia -v /path/to/local/directory:/path/in/container constricon python train_constricon_supervised.py ThoraxCBCT
 
-Run docker and start training (insert path to ThoraxCBCT data):
 
-```
-sudo docker run --gpus all --entrypoint ./train.sh \
--v /playpen/tgreer/docker/Release_06_12_23/:/oncoreg/data \
--v ./model/:/oncoreg/model/ \
-constricon ThoraxCBCT 
-```
-
-Run inference (insert path to ThoraxCBCT data):
-
-```
-sudo docker run --gpus all --entrypoint ./test.sh \
--v /playpen/tgreer/docker/Release_06_12_23/:/oncoreg/data \
--v ./model/:/oncoreg/model/ \
--v ./results/:/oncoreg/results/ \
-constricon ThoraxCBCT Val
-```
-
-## Usage without Docker
-
+### Usage without Docker
 If you want to use this repository without docker containerisation you can do so by creating an environment directly via the requirements.txt and then run the training and inference scripts after adjusting the paths at the beginning of the scripts:
-```
-python train_constricon_supervised.py <task>
+
+python train_constricon_supervised.py <task: Oncoreg or ThoraxCBCT>
 python inference_constricon.py <task> <Val/Ts>
+
+## Dataset preparation:
+
+The data is expected in a directory (data_dir) with task-specific subdirectories and JSON files containing dataset metadata (e.g., ThoraxCBCT_dataset.json).
+
+Data Loading:
+The get_files function reads and parses the dataset. This includes fixed and moving images, keypoints, original shapes, and optional MIND descriptors.
+
+Normalization and Preprocessing:
+Images are normalized by subtracting the minimum and dividing by the maximum pixel intensity.
+Optional data augmentation is applied during training via the augment function.
+
+Splitting:
+The code implicitly handles batch creation by sampling data points randomly during training, ensuring a variety of cases are used in each iteration.
+
+## Train Commands
+```bash
+bash train.sh
 ```
 
+Alternatively, if you have execute permissions, you can directly run it:
+
+```bash
+./train.sh
+```
+***NOTE***: path to data and save_direcory must be edited in files train_constricon_supervised.py and inference_constricon.py
+
+## Test Commands
+List the commands needed to test your model. Provide any necessary explanations or parameters.
+For test.py script, you should use a parser to set all input parameters. Below is the example, how to run `test.py`:
+
+```bash
+python test.py --i /path/to/test/data --o /path/to/output -other /other/parameters....
+```
+
+Make sure to include `path to test data`, `path where to save output` and all user related parameters in parser.
 
 
-
-### References
-
-Inverse Consistency by Construction for Multistep Deep Registration
-Hastings Greer, Lin Tian, Francois-Xavier Vialard, Roland Kwitt, Sylvain Bouix, Raul San Jose Estepar, Richard Rushmore, Marc Niethammer 
-MICCAI 2023
