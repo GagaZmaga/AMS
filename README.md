@@ -26,19 +26,7 @@ https://cloud.imi.uni-luebeck.de/s/xQPEy4sDDnHsmNg
 Build the docker:
 
 docker build -t constricon Dockerfile .
-run docker and start training (insert path to ThoraxCBCT data):
-
-sudo docker run --gpus all --entrypoint ./train.sh \
--v /playpen/tgreer/docker/Release_06_12_23/:/oncoreg/data \
--v ./model/:/oncoreg/model/ \
-constricon ThoraxCBCT 
-Run inference (insert path to ThoraxCBCT data):
-
-sudo docker run --gpus all --entrypoint ./test.sh \
--v /playpen/tgreer/docker/Release_06_12_23/:/oncoreg/data \
--v ./model/:/oncoreg/model/ \
--v ./results/:/oncoreg/results/ \
-constricon ThoraxCBCT Val
+docker run -i -t --runtime=nvidia -v /path/to/local/directory:/path/in/container constricon python train_constricon_supervised.py ThoraxCBCT
 
 
 ### Usage without Docker
@@ -47,17 +35,30 @@ If you want to use this repository without docker containerisation you can do so
 python train_constricon_supervised.py <task: Oncoreg or ThoraxCBCT>
 python inference_constricon.py <task> <Val/Ts>
 
-## Data Preparation
-Explain the steps required to prepare the data for training. Include any preprocessing steps and data splitting.
+## Dataset preparation:
+
+The data is expected in a directory (data_dir) with task-specific subdirectories and JSON files containing dataset metadata (e.g., ThoraxCBCT_dataset.json).
+
+Data Loading:
+The get_files function reads and parses the dataset. This includes fixed and moving images, keypoints, original shapes, and optional MIND descriptors.
+
+Normalization and Preprocessing:
+Images are normalized by subtracting the minimum and dividing by the maximum pixel intensity.
+Optional data augmentation is applied during training via the augment function.
+
+Splitting:
+The code implicitly handles batch creation by sampling data points randomly during training, ensuring a variety of cases are used in each iteration.
 
 ## Train Commands
-If applicable, list the commands needed to train your model. Provide any necessary explanations or parameters. 
-For train.py script, you should use a parser to set all input parameters. Below is the example, how to run `train.py`:
-
 ```bash
-python train.py --i /path/to/data --o /path/to/models -other /other/parameters....
+bash train.sh
 ```
 
+Alternatively, if you have execute permissions, you can directly run it:
+
+```bash
+./train.sh
+```
 Make sure to include ` path to data`, `path where to save models` and all user related parameters in parser.
 
 ## Test Commands
