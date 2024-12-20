@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-sys.path.append('/Users/gal/Desktop/DEV/Programiranje/Faks/Drugi_letnik/AMS/GIT/utils')
+sys.path.append('/home/galk/Testiranje/utils')
 import torch
 import torch.nn.functional as F
 from tqdm import trange
@@ -16,9 +16,9 @@ from data_utils import get_files
 
 import network_definition
 
-data_dir = 'data/'
-model_weights_path = 'model/constricon_0.pth'
-outfolder = 'results/'
+data_dir = '/home/galk/Testiranje/Podatki_za_ucenje_izziv'
+model_weights_path = '/home/galk/Testiranje/Model/constricon_0.pth'
+outfolder = '/home/galk/Testiranje/Model/Model/Results/'
 
 def logstring(*args):
     logging.info(str(args))

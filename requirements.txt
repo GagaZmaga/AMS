@@ -4,5 +4,5 @@ torchvision
 nibabel
 tqdm
 scipy
-numpy
+numpy<2
 icon_registration==1.1.3

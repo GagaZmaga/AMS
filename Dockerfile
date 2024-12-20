@@ -1,11 +1,13 @@
-FROM nvidia/cuda:12.1.0-cudnn8-runtime-ubuntu22.04
+FROM pytorch/pytorch:2.1.0-cuda12.1-cudnn8-runtime
 
 RUN apt-get update
 RUN apt-get install -y python3
 RUN apt-get install -y python3-pip
 RUN apt-get install -y python-is-python3
+RUN apt-get update && apt-get install -y git
 
-WORKDIR /Podatki_za_ucenje_izziv
+
+WORKDIR /home/galk/Testiranje
 
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
@@ -17,6 +19,13 @@ COPY inference_constricon.py .
 COPY train_constricon_supervised.py .
 COPY multiscale_constr_model.py .
 COPY network_definition.py .
+COPY Podatki_za_ucenje_izziv ./Podatki_za_ucenje_izziv
 
+RUN mkdir -p /home/galk/Testiranje/Model
+RUN mkdir -p /home/galk/Testiranje/Model/Results
+RUN chmod -R 777 /home/galk/Testiranje/Model
 RUN chmod +x test.sh
 RUN chmod +x train.sh
+
+# Default command
+CMD ["bash"]
