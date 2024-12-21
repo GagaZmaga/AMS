@@ -17,7 +17,7 @@ Inverse consistency is a key feature in image registration, as it ensures that t
 
 
 ## Rezultati
-Zaenkrat še zmeraj poganjam...
+Mi je uspelo, vendar sem potem zgubil povezavo z računalnikom, tako da so rezultati ostali ne pushani.
 
 ## Docker Information
 Download the ThoraxCBCT dataset including training and validation data, keypoints, masks and the ThoraxCBCT_dataset.json:
